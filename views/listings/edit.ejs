@@ -1,0 +1,32 @@
+<% layout("/layouts/boilerplate")%>
+<body>
+    <h1>Create List</h1>
+    <form method="post" action="/listings/<%=listing._id%>?_method=PUT" >
+        <div class="mb-3">
+            <b>Title</b>
+            <input 
+                class="form-control"
+                name="listing[title]"
+                type="text"
+                placeholder="enter title"
+                value="<%=listing.title%>"
+            />
+        </div>
+        <div class="mb-3">
+            <textarea name="listing[description]" class="form-control" placeholder="enter description ... " rows="10" cols="30"><%=listing.description%></textarea><b>Desciption</b>
+        </div>
+        <div class="mb-3">
+            <b>Image url</b><input name="listing[image]" type="text" class="form-control" placeholder="enter image URL/Link" type="text"/>
+        </div>
+        <div class="mb-3">
+            <b>Price</b><input name="listing[price]" class="form-control" type="text" placeholder="enter price"value="<%=listing.price%>" type="number"/>
+        </div>
+        <div class="mb-3">
+            <b>Country Name</b><input name="listing[country]" class="form-control" type="text" placeholder="enter country"value="<%=listing.country%>"/>
+        <div class="mb-3">
+            <b>Location</b><input name="listing[location]" class="form-control" type="text" placeholder="enter location"value="<%=listing.location%>" />
+        </div>
+            <button>Add</button>
+    </form>
+</div>
+</body>
