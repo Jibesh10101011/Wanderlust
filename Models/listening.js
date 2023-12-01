@@ -8,11 +8,8 @@ const listeningSchema=new mongoose.Schema({
         type:String
       },
       image:{
-        type:String,
-        default:"https://envato-shoebox-0.imgix.net/6824/e943-3311-43ea-83c5-e6fcc7e173f8/sedam+kaya+orlinnyy+zalet+3.jpg?auto=compress%2Cformat&fit=max&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark2.png&markalign=center%2Cmiddle&markalpha=18&w=800&s=da6631a802c409742fb9e21d3a63b29f",
-        set:(v)=>v===""?"https://envato-shoebox-0.imgix.net/6824/e943-3311-43ea-83c5-e6fcc7e173f8/sedam+kaya+orlinnyy+zalet+3.jpg?auto=compress%2Cformat&fit=max&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark2.png&markalign=center%2Cmiddle&markalpha=18&w=800&s=da6631a802c409742fb9e21d3a63b29f"
-                :v,
-        //Setting a default image
+        url:String,
+        filename:String
       },
       price:{
         type:String
@@ -28,7 +25,11 @@ const listeningSchema=new mongoose.Schema({
           type:mongoose.Schema.ObjectId,
           ref:'review'
         }
-      ]
+      ],
+      owner:{
+        type:mongoose.Schema.ObjectId,
+        ref:'User',
+      }
 });
 
 listeningSchema.post("findOneAndDelete",async(listing)=>{
